@@ -31,7 +31,7 @@
     dnf: pkg=mysql state=installed  # Using module ( doing the task )
   
 
-- hosts: appservers
+- hosts: app
   become: true
   tasks:
   - name: Install default-jdk
