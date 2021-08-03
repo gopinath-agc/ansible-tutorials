@@ -7,12 +7,12 @@
       debug:
         msg: "{{ my_name }}"
 
-    - name: Display hostname
+    - name: Display hostname from the Ansible-nodes file
       debug:
         var: hostvars[inventory_hostname].hostname    
     
-    - name: Display stdout_lines[0] variable
+    - name: Display hostname
       debug:
-        var: result.stdout_lines[0]  
+        var: hostvars[inventory_hostname]
 
           
