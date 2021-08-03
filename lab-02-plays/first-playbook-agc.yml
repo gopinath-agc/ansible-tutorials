@@ -28,7 +28,7 @@
         name: nginx
         state: present
     - name: starting nginx server
-    - service:
+      service:
         name: nginx
         state: started
         enabled: "yes"
