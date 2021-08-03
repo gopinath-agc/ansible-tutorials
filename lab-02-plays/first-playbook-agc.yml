@@ -1,57 +1,43 @@
----
-- hosts: node01  # Host or Group of Selections
-  gather_facts: true
-  become: true
-  vars:
-    httpd_port: 8080
-  tasks:
-  - name: Create Dir # Naming the task for debug purpose
-    shell: mkdir -p /home/ec2-user/testdirAnsibl  # Using module ( doing the task )
-
-  - name : copying file from controller to node
-    copy:
+hosts: node01
+gather_facts: true
+become: true
+vars:
+  httpd_port: 8080
+tasks:
+  - name: Create Dir
+    shell: mkdir -p /home/ec2-user/testdirAnsibl
+  - name: copying file from controller to node
+    copy: null
     src: /inventory/ansible-nodes
     dest: /temp1/ansible-nodes
-
-  - name : to display the content of ansible-nodes in temp1 location
-    shell: cat /tmp/ansible-nodes 
-
-  - name: Install apache packages 
+  - name: to display the content of ansible-nodes in temp1 location
+    shell: cat /tmp/ansible-nodes
+  - name: Install apache packages
     yum:
       name: httpd
       state: present
-
-  - name: Install git packages 
+  - name: Install git packages
     yum:
       name: git
-      state: present   
-
+      state: present
   - name: Git command
     git:
-      repo: https://github.com/becloudready/prometheus_monitoring.git
+      repo: 'https://github.com/becloudready/prometheus_monitoring.git'
       dest: /tmp2 version=HEAD
-
-  - name: Install nginx packages 
+  - name: Install nginx packages
     yum:
       name: nginx
-      state: present      
-
+      state: present
   - name: starting nginx server
   - service:
       name: nginx
       state: started
-      enabled: yes   
-
-  - name: file state 
-      file:
-        path: /home/ec2-user/usingAnsible
-        state: directory
-
-  - name: file copy ansible 
-      copy:
-       src: README.md
-       dest: dest=/tmp3
-
-
-
-  
+      enabled: 'yes'
+  - name: file state
+    file:
+      path: /home/ec2-user/usingAnsible
+      state: directory
+  - name: file copy ansible
+    copy:
+      src: README.md
+      dest: dest=/tmp3
