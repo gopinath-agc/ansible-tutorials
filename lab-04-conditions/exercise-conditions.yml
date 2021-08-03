@@ -2,11 +2,11 @@
   tasks:
     - name: installing following packages in the web group - node01
       ignore_errors: true
-  yum:
-    name: '{{ item }}'
-    state: present
-  with_items:
-    - mlocate
-    - strace
-    - java-1.8.0-openjdk
-    - epel-release
+    yum:
+      name: '{{ item }}'
+      state: present
+    with_items:
+      - mlocate
+      - strace
+      - java-1.8.0-openjdk
+      - epel-release
