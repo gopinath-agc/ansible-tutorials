@@ -82,9 +82,5 @@
   name: Running group var debugs for appservers
   tasks:
     - debug: var=testname
-
-  vars_prompt:
-    - name: username
-      prompt: what is your username?
-      private: no  
+ 
 
