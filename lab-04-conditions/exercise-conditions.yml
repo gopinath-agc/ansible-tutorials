@@ -3,7 +3,7 @@
     - name: installing following packages in the web group - node01
       ignore_errors: true
       yum:
-        name: '{{ item }}'
+        name: "{{ item }}"
         state: present
       with_items:
         - mlocate
