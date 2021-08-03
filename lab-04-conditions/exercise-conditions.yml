@@ -10,3 +10,12 @@
         - strace
         - java-1.8.0-openjdk
         - epel-release
+
+    - name: Creating multiple folders in the web group - node01    
+      shell: mkdir -p /home/ec2-user/"{{ item }}"
+      with_items:
+        - yelp
+        - google
+        - apple
+        - yahoo
+        - allstate
