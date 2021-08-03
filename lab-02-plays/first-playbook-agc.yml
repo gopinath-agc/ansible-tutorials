@@ -31,7 +31,7 @@
       service:
         name: nginx
         state: started
-        enabled: "yes"
+        enabled: yes
     - name: file state
       file:
         path: /home/ec2-user/usingAnsible
