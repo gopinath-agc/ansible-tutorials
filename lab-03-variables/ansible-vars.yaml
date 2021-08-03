@@ -47,7 +47,7 @@
         var: result.stdout_lines[0]   
     - name: Display name
       debug:
-        var: "{{ my_name }}"  
+        msg: "{{ my_name }}"  
 
 
 
