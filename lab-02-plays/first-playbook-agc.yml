@@ -44,4 +44,4 @@
     - name: file copy ansible
       copy:
         src: /root/ansible-tutorials/README.md
-        dest: dest=/tmp3
+        dest: dest=/tmp2
