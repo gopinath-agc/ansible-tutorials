@@ -32,7 +32,7 @@
 - hosts: db # Host or Group of Selections
   tasks:
   - name: Install Mysql web server # Naming the task for debug purpose
-    yum: pkg=maria state=installed  # Using module ( doing the task )
+    yum: pkg=mysql state=installed  # Using module ( doing the task )
   
 
 - hosts: app
