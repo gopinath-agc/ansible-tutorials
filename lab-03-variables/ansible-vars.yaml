@@ -41,7 +41,10 @@
     - name: Display all variables/facts known for a host
       debug:
         var: hostvars[inventory_hostname]
-      
+    
+    - name: Display stdout_lines[0] variable
+      debug:
+        var: result.stdout_lines[0]   
 
     - name: Display some varialbes variables/facts known for a host
       debug:
