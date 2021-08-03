@@ -27,6 +27,11 @@
       yum:
         name: nginx
         state: present
+    - name: stopping httpd server
+      service:
+        name: httpd
+        state: stopped
+           
     - name: starting nginx server
       service:
         name: nginx
