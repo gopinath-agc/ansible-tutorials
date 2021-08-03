@@ -1,18 +1,16 @@
----
 - name: install tomcat server
   hosts: web
   become: true
-
   tasks:
     - name: Check Java version
-      command: java -version 2>&1 | grep version | awk '{print $3}' | sed 's/"//g'
+      command: 'java -version 2>&1 | grep version | awk ''{print $3}'' | sed ''s/"//g'''
       register: version
       ignore_errors: true
-
     - name: print java version
-      debug:
-      msg: " {{version i}} "
-      when: "version.rc !== 0"
+      debug: null
+      msg: ' {{version i}} '
+      when: version.rc !== 0
+
 
   # tasks:
   # - name: Install OpenJDK
