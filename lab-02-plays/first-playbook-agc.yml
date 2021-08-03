@@ -2,7 +2,7 @@
  
   tasks:
     - name: Create Dir
-      shell: mkdir -p /home/ec2-user/testdirAnsibl
+      shell: mkdir -p /home/ec2-user/testdirAnsibl3
     - name: copying file from controller to node
       copy: null
       src: /inventory/ansible-nodes
