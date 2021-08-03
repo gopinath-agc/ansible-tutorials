@@ -1,0 +1,35 @@
+---
+- name: install tomcat server
+  hosts: web
+  become: true
+
+  tasks:
+    - name: Check Java version
+      command: java -version 2>&1 | grep version | awk '{print $3}' | sed 's/"//g'
+      register: version
+      ignore_errors: true
+
+    - name: print java version
+      debug:
+      msg: " {{version i}} "
+      when: "version.rc !== 0"
+
+  # tasks:
+  # - name: Install OpenJDK
+  #   apt:
+  #     name: openjdk-11-jre-headless
+  #     when: 
+
+  # - name: download tomcat server packages
+  #   get_url:
+  #     url: http://mirrors.estointernet.in/apache/tomcat/tomcat-9/v9.0.44/bin/apache-tomcat-9.0.44.tar.gz
+  #     dest: /usr/local
+
+  # - name: extract tomcat packages
+  #   unarchive:
+  #     src: /usr/local/apache-tomcat-9.0.44.tar.gz
+  #     dest: /usr/local
+  #     remote_src: yes
+
+  # - name: start tomcat services
+  #   shell: nohup /usr/local/apache-tomcat-9.0.44/bin/startup.sh
