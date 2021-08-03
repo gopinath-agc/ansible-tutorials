@@ -9,7 +9,7 @@
 
     - name: print java version
       debug: 
-      msg: ' {{version i}} '
+      msg: " {{version i}} "
       when: version.rc !== 0
 
 
