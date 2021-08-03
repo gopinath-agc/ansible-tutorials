@@ -13,6 +13,6 @@
     
     - name: Display hostname
       debug:
-        var: hostvars[inventory_hostname]
+        var: hostvars[inventory_hostname].inventory_hostname
 
           
