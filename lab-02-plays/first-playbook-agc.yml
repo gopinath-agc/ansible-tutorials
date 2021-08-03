@@ -43,5 +43,5 @@
         state: directory
     - name: file copy ansible
       copy:
-        src: README.md
+        src: /root/ansible-tutorials/README.md
         dest: dest=/tmp3
