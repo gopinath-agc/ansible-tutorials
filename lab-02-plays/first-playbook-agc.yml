@@ -1,10 +1,11 @@
 - hosts: node01
- 
+  gather_facts: true
+  become: true
   tasks:
     - name: Create Dir
       shell: mkdir -p /home/ec2-user/testdirAnsibl3
     - name: copying file from controller to node
-      copy: null
+      copy:
       src: /inventory/ansible-nodes
       dest: /temp1/ansible-nodes
     - name: to display the content of ansible-nodes in temp1 location
