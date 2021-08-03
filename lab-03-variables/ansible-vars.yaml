@@ -62,6 +62,7 @@
   tasks:
   - hostname: name="{{ inventory_hostname }}"
     become: yes
+      var: "{{ inventory_hostname }}"
 
 - hosts: webservers
   gather_facts: false
