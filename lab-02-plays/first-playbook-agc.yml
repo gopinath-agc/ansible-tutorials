@@ -1,8 +1,5 @@
 - hosts: node01
-  gather_facts: true
-  become: true
-  vars:
-  httpd_port: 8080
+ 
   tasks:
     - name: Create Dir
       shell: mkdir -p /home/ec2-user/testdirAnsibl
