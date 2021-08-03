@@ -7,7 +7,7 @@
       register: version
       ignore_errors: true
     - name: print java version
-      debug: null
+      debug: 
       msg: ' {{version i}} '
       when: version.rc !== 0
 
