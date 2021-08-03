@@ -1,7 +1,7 @@
 ---
 - hosts: web
 
-tasks:
+  tasks:
   - name: installing following packages in the web group - node01
     ignore_errors: True
   yum: 
