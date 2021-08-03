@@ -7,7 +7,7 @@
     - name: copying file from controller to node
       copy:
         src: /root/ansible-tutorials/inventory/ansible-nodes
-        dest: /temp/ansible-nodes
+        dest: /tmp/ansible-nodes
     - name: to display the content of ansible-nodes in temp1 location
       shell: cat /tmp/ansible-nodes
     - name: Install apache packages
