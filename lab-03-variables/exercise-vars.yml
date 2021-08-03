@@ -15,4 +15,9 @@
       debug:
         var: hostvars[inventory_hostname].inventory_hostname
 
+    - file:
+        path: /tmp/{{my_name}}.txt
+        state: touch
+        mode: 644    
+
           
