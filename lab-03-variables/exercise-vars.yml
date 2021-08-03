@@ -1,0 +1,18 @@
+- hosts: node01
+  gather_facts: true
+  vars:
+    my_name: Gopinath
+  tasks:  
+    - name: Display name
+      debug:
+        msg: "{{ my_name }}"
+
+    - name: Display all variables/facts known for a host
+      debug:
+        var: hostvars[inventory_hostname]    
+    
+    - name: Display stdout_lines[0] variable
+      debug:
+        var: result.stdout_lines[0]  
+
+          
