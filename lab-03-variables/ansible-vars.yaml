@@ -1,7 +1,7 @@
 - hosts: node01
   gather_facts: true
   vars:
-    my_name: Chandan
+    my_name: Gopinath
   tasks:
     - yum:
         pkg: httpd
@@ -45,6 +45,11 @@
     - name: Display stdout_lines[0] variable
       debug:
         var: result.stdout_lines[0]   
+    - name: Display name
+      debug:
+        var: "{{ my_name }}"  
+
+
 
     - name: Display some varialbes variables/facts known for a host
       debug:
