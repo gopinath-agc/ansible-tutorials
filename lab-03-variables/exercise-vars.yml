@@ -7,9 +7,9 @@
       debug:
         msg: "{{ my_name }}"
 
-    - name: Display all variables/facts known for a host
+    - name: Display hostname
       debug:
-        var: hostvars[inventory_hostname]    
+        var: hostvars[inventory_hostname].hostname    
     
     - name: Display stdout_lines[0] variable
       debug:
