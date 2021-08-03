@@ -83,7 +83,7 @@
   tasks:
     - debug: var=testname
 
-  vars-prompt:
+  vars_prompt:
     - name: username
       prompt: what is your username?
       private: no  
