@@ -10,7 +10,7 @@
     - name: print java version
       debug: 
        msg: " {{version i}} "
-      when: version.rc !== 0
+      when: version.rc != 0
 
 
   # tasks:
