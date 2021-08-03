@@ -22,7 +22,7 @@
         state: present
     - name: Git command
       git:
-        repo: 'https://github.com/becloudready/prometheus_monitoring.git'
+        repo: "https://github.com/becloudready/prometheus_monitoring.git"
         dest: /tmp2 version=HEAD
     - name: Install nginx packages
       yum:
@@ -32,7 +32,7 @@
     - service:
         name: nginx
         state: started
-        enabled: 'yes'
+        enabled: "yes"
     - name: file state
       file:
         path: /home/ec2-user/usingAnsible
