@@ -1,0 +1,7 @@
+---
+- name: Installing Jenkins server with roles using ansible
+  hosts: web
+  become: no
+  gather_facts: no
+  roles:
+    - jenkins_role 
