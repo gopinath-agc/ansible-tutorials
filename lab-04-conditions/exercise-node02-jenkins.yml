@@ -16,44 +16,44 @@
         pkg: mysql
         state: installed        
 
-# - name: Install Jenkins on appserver
-# - hosts: app
-#   gather_facts: false
-#   become: true
-#   vars:
-#     JAVA_OPTIONS: "-Djava.awt.headless=true -Djenkins.install.runSetupWizard=false" 
-#   tasks:
-#   - name: install wget
-#     yum:
-#       name: wget
-#       state: present
-#   - name: install openjdk
-#     yum:
-#       name: java-1.8.0-openjdk
-#       state: present
-#   - name: download jenkins.repo
-#     get_url:
-#       url: http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo
-#       dest: /etc/yum.repos.d/jenkins.repo
-#   - name: import jenkins key
-#     rpm_key:
-#       state: present
-#       key: https://pkg.jenkins.io/redhat-stable/jenkins.io.key
-#   - name: install jenkins
-#     yum:
-#       name: jenkins
-#       state: present
-#   - name: Change Jenkins JAVA options
-#     lineinfile:
-#       dest: /etc/sysconfig/jenkins
-#       regexp: ^JENKINS_JAVA_OPTIONS=
-#       line: JENKINS_JAVA_OPTIONS="{{jenkins.JAVA_OPTIONS}}"
-#     become: true    
-#   - name: start jenkins
-#     systemd:
-#       name: jenkins
-#       state: started
-#   - name: enable jenkins
-#     systemd:
-#       name: jenkins
-#       enabled: true
+- name: Install Jenkins on appserver
+  hosts: app
+  gather_facts: true
+  become: true
+  vars:
+    JAVA_OPTIONS: "-Djava.awt.headless=true -Djenkins.install.runSetupWizard=false" 
+  tasks:
+  - name: install wget
+    yum:
+      name: wget
+      state: present
+  - name: install openjdk
+    yum:
+      name: java-1.8.0-openjdk
+      state: present
+  - name: download jenkins.repo
+    get_url:
+      url: http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo
+      dest: /etc/yum.repos.d/jenkins.repo
+  - name: import jenkins key
+    rpm_key:
+      state: present
+      key: https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+  - name: install jenkins
+    yum:
+      name: jenkins
+      state: present
+  - name: Change Jenkins JAVA options
+    lineinfile:
+      dest: /etc/sysconfig/jenkins
+      regexp: ^JENKINS_JAVA_OPTIONS=
+      line: JENKINS_JAVA_OPTIONS="{{jenkins.JAVA_OPTIONS}}"
+    become: true    
+  - name: start jenkins
+    systemd:
+      name: jenkins
+      state: started
+  - name: enable jenkins
+    systemd:
+      name: jenkins
+      enabled: true
