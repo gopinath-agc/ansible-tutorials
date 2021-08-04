@@ -1,8 +1,18 @@
 - hosts: web
   vars:
     user_name: Gopinath
+    httpd port: 8080
   tasks:
     - template:
         src: exercise-jinja-template.j2
         dest: /home/ec2-user/facts
     - debug: var=play_hosts
+
+    - name: stop tomcat server
+      service:
+        name: tomcat
+        state: stopped
+        enabled: no
+
+    - name: start httpd
+      service: name=httpd state=started enabled=yes    
