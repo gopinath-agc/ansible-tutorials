@@ -7,11 +7,11 @@
         name: httpd
         state: present
 
-- hosts: db
-  gather_facts: true
-  become: true
-  tasks:
-    - name: Installing mysql in db-node02 server 
-      yum:
-        pkg: mysql
-        state: installed        
+# - hosts: db
+#   gather_facts: true
+#   become: true
+#   tasks:
+#     - name: Installing mysql in db-node02 server 
+#       yum:
+#         pkg: mysql
+#         state: installed        
