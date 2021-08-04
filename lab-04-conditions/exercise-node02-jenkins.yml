@@ -20,8 +20,7 @@
   hosts: app
   gather_facts: true
   become: true
-  vars:
-    JAVA_OPTIONS: "-Djava.awt.headless=true -Djenkins.install.runSetupWizard=false" 
+
   tasks:
   - name: install wget
     yum:
@@ -44,10 +43,11 @@
       name: jenkins
       state: present
   - name: Change Jenkins JAVA options
-    lineinfile:
-      dest: /etc/sysconfig/jenkins
-      regexp: ^JENKINS_JAVA_OPTIONS=
-      line: JENKINS_JAVA_OPTIONS="{{jenkins.JAVA_OPTIONS}}"
+    lineinfile: 
+      dest=/etc/sysconfig/jenkins
+      regexp=^JENKINS_JAVA_OPTIONS=
+      line=JENKINS_JAVA_OPTIONS="-Djava.awt.headless=true -Djenkins.install.runSetupWizard=false"
+    become: true
       
   - name: start jenkins
     systemd:
