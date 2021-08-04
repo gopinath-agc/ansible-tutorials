@@ -1,6 +1,6 @@
 ---
-- hosts: webservers
+- hosts: web
   become: true
   roles:
-    - ntp
+    # - ntp
     - httpd

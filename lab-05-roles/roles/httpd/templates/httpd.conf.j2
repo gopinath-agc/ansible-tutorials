@@ -1,16 +1,9 @@
 
 ServerRoot "/etc/httpd"
 
-{% if env == 'dev' %}
-Listen 80
+Listen {{ httpd_port }}
 
-{% elif env == 'uat' %}
-Listen 8080
-
-{% elif env == 'prod' %}
-Listen 8090
-{% endif %}
-
+#
 Include conf.modules.d/*.conf
 
 User apache
