@@ -8,11 +8,11 @@
         dest: /home/ec2-user/facts
     - debug: var=play_hosts
 
-    - name: stop tomcat server
-      service:
-        name: tomcat
-        state: stopped
-        enabled: no
+    # - name: stop tomcat server
+    #   service:
+    #     name: tomcat
+    #     state: stopped
+    #     enabled: no
 
     - name: start httpd
       service: name=httpd state=started enabled=yes    
