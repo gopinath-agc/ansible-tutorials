@@ -1,0 +1,8 @@
+- hosts: web
+  vars:
+    user_name: Gopinath
+  tasks:
+    - template:
+        src: exercise-jinja-template.j2
+        dest: /home/ec2-user/facts
+    - debug: var=play_hosts
