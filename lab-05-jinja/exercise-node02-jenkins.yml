@@ -1,0 +1,17 @@
+- hosts: web
+  gather_facts: true
+  become: true
+  tasks:
+    - name: Installing httpd in web-node01 server 
+      yum:
+        name: httpd
+        state: present
+
+- hosts: db
+  gather_facts: true
+  become: true
+  tasks:
+    - name: Installing mysql in db-node02 server 
+      yum:
+        pkg: mysql
+        state: installed        

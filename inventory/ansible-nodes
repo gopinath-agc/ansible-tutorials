@@ -1,13 +1,14 @@
 # node01 ansible_ssh_host=142.93.150.117 ansible_ssh_user=root ansible_ssh_private_key_file=~/ansible.pem
 # node02 ansible_ssh_host=206.81.15.120 ansible_ssh_user=root ansible_ssh_private_key_file=~/ansible.pem
 node01 ansible_ssh_host=147.182.177.35 ansible_ssh_user=root hostname=agc-node
+node02 ansible_ssh_host=143.198.40.142 ansible_ssh_user=root
 
 
 [web]
 node01
 
 [db]
-node01
+node02
 
 [app]
-node01
+node02
