@@ -1,7 +1,10 @@
 - hosts: web
+  gather_facts: true
+  become: true
   vars:
+    httpd port: 8085
     user_name: Gopinath
-    #httpd port: 8080
+    
   tasks:
     - template:
         src: exercise-jinja-template.j2
