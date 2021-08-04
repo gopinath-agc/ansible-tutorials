@@ -6,10 +6,16 @@
     user_name: Gopinath
     
   tasks:
-    - template:
-        src: exercise-jinja-template.j2
-        dest: /home/ec2-user/facts
-    - debug: var=play_hosts
+  #   - template:
+  #       src: exercise-jinja-template.j2
+  #       dest: /home/ec2-user/facts
+  #   - debug: var=play_hosts
+
+    - name: Changing the port number   
+      template:
+        src: httpd.conf.j2
+        dest: /etc/httpd/conf/httpd.conf
+
 
     # - name: stop tomcat server
     #   service:
