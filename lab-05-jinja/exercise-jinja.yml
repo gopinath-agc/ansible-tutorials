@@ -2,7 +2,7 @@
   gather_facts: true
   become: true
   vars:
-    httpd port: 8085
+    # httpd port: 8085
     user_name: Gopinath
     
   tasks:
