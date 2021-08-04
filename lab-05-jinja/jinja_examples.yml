@@ -1,15 +1,19 @@
-- hosts: webservers
+- hosts: web
   vars:
-    user_name: Chandan
+    user_name: Gopinath
   tasks:
     - template:
         src: example-template.j2
         dest: /tmp/jinta-output
     - debug: var=play_hosts
+    - copy:
+        src: example-template.j2
+        dest: /tmp/cp-output
+    - debug: var=play_hosts
 
-- hosts: webservers
+- hosts: app
   vars:
-    user_name: Chandan
+    user_name: Gopinath
   tasks:
     - template:
         src: example-template-2.j2
