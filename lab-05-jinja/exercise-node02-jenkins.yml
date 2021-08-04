@@ -16,8 +16,7 @@
         pkg: mysql
         state: installed        
 
-        - name: Install Jenkins on appserver
-
+- name: Install Jenkins on appserver
 - hosts: app
   gather_facts: false
   become: true
